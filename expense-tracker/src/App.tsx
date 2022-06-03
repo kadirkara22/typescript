@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import { Layout, Menu } from "antd";
+import Login from "./components/Login";
 const { Header, Content, Footer } = Layout;
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       >
         <Routes>
           <Route path="/register" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Content>
       <Footer style={{ textAlign: "center" }}></Footer>

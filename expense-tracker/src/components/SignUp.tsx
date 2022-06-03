@@ -1,15 +1,14 @@
 import React from "react";
-import { Form, Input, Button, message } from "antd";
+import { Form, Input, Button } from "antd";
 import api from "../utils/api";
 import { useNavigate } from "react-router-dom";
+import showError from "../utils/showError";
 
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
-const showError = (errorMessage: string) => {
-  message.error(errorMessage);
-};
+
 const SignUp = () => {
   const validateMessages = {
     required: "${label} is required!",
@@ -19,11 +18,12 @@ const SignUp = () => {
   };
 
   const navigate = useNavigate();
+
   const onFinish = async (values: any) => {
     console.log(values);
     try {
       await api().post("/users/register", values);
-      navigate("/login");
+      navigate("/login", { state: true });
     } catch (error) {
       console.log(error);
       showError((error as any).response.data.errorMessage);
