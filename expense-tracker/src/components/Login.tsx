@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Input, Button, Result } from "antd";
 import showError from "../utils/showError";
 import api from "../utils/api";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import showSuccess from "../utils/showSuccess";
+import { LoginForm } from "../types/user";
+import { AppState } from "../store";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
   const onFinish = async (values: any) => {
     console.log("Success:", values);
     try {
@@ -20,6 +23,31 @@ const Login = () => {
     console.log("Failed:", { errorInfo });
     showError(errorInfo);
   };
+  /*   const navigate = useNavigate();
+  const location = useLocation<{ state?: boolean }>();
+  const dispatch = useDispatch();
+
+  const { data, loading, error } = useSelector((state: AppState) => state.user);
+
+  const onFinish = (values: LoginForm) => {
+    dispatch(login(values));
+  };
+
+  useEffect(() => {
+    error && showError(error);
+  }, [error]);
+
+  useEffect(() => {
+    data.username && showSuccess("You have successfully logged in!");
+  }, [data.username]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  }, [data]); */
+
   return (
     <Form
       name="basic"
@@ -27,7 +55,7 @@ const Login = () => {
       wrapperCol={{ span: 16 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+      // onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       {location.state === true && (

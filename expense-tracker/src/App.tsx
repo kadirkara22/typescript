@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import { Layout, Menu } from "antd";
 import Login from "./components/Login";
+import Categories from "./components/Categories";
 const { Header, Content, Footer } = Layout;
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/categories" element={<Categories />} />
         </Routes>
       </Content>
       <Footer style={{ textAlign: "center" }}></Footer>
