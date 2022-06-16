@@ -4,22 +4,14 @@ import SignUp from "./components/SignUp";
 import { Layout, Menu } from "antd";
 import Login from "./components/Login";
 import Categories from "./components/Categories";
+import AppHeader from "./components/AppHeader";
+import Records from "./components/Records";
+import Logout from "./components/Logout";
 const { Header, Content, Footer } = Layout;
 function App() {
   return (
     <Layout>
-      <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={new Array(3).fill(null).map((_, index) => ({
-            key: String(index + 1),
-            label: `nav ${index + 1}`,
-          }))}
-        />
-      </Header>
+      <AppHeader />
       <Content
         className="site-layout"
         style={{ padding: "50px", marginTop: 64 }}
@@ -28,6 +20,8 @@ function App() {
           <Route path="/register" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/records" element={<Records />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </Content>
       <Footer style={{ textAlign: "center" }}></Footer>
