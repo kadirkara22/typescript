@@ -33,14 +33,15 @@ body {
   background-color: rgba(83, 235, 13, 0.801);
 }
 .tube {
-  min-height: 120px;
-  width: fit-content;
+  min-height: 150px;
+  width: 76px;
+  align-items: center;
   padding: 5px;
   border: 2px solid white;
   border-top: none;
   border-radius: 10px 10px 10px 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 5px;
   -webkit-border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;

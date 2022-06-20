@@ -3,9 +3,10 @@ import { IBlockItem } from "../interfaces";
 
 interface IProps {
   blockData: IBlockItem;
+  draggable: boolean;
 }
 
-const Block: React.FC<IProps> = ({ blockData }) => {
+const Block: React.FC<IProps> = ({ blockData, draggable }) => {
   const dragStart = (e: React.DragEvent<HTMLDivElement>) => {
     e.dataTransfer.setData("text", e.currentTarget.id);
   };
@@ -13,9 +14,9 @@ const Block: React.FC<IProps> = ({ blockData }) => {
   return (
     <div
       id={blockData.id.toString()}
+      draggable={draggable}
       className={`block block-${blockData.color}`}
       onDragStart={dragStart}
-      draggable
     >
       {blockData.id} - {blockData.order}
     </div>
